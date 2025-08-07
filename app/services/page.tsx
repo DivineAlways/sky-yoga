@@ -123,8 +123,8 @@ export default function ServicesPage() {
 
               <div className="relative">
                 <Image
-                  src="/images/studio-goddess-mural.jpg"
-                  alt="Sky's yoga studio with beautiful goddess mural"
+                  src="/images/What-to-Expect-From-a-Thai-Yoga-Massage-Blue-Osa-Spa.jpg"
+                  alt="Thai yoga massage combining yoga and therapeutic touch"
                   width={600}
                   height={500}
                   className="rounded-3xl shadow-2xl"
@@ -227,8 +227,8 @@ export default function ServicesPage() {
                         </div>
                         <div className="relative">
                             <Image
-                                src="/images/studio-goddess-mural.jpg"
-                                alt="Serene healing space for massage therapy"
+                                src="/images/1800x1200_what_is_a_swedish_massage_ref_guide.webp"
+                                alt="Swedish massage therapy for relaxation and healing"
                                 width={600}
                                 height={500}
                                 className="rounded-3xl shadow-2xl"
@@ -285,8 +285,8 @@ export default function ServicesPage() {
                         </div>
                         <div className="relative">
                             <Image
-                                src="/images/studio-goddess-mural.jpg"
-                                alt="Serene healing space for massage therapy"
+                                src="/images/What-to-Expect-From-a-Thai-Yoga-Massage-Blue-Osa-Spa.jpg"
+                                alt="Thai yoga massage combining yoga and therapeutic touch"
                                 width={600}
                                 height={500}
                                 className="rounded-3xl shadow-2xl"

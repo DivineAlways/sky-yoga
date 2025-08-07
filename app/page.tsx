@@ -165,8 +165,8 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white overflow-hidden">
               <div className="relative h-64">
                 <Image
-                  src="/images/studio-goddess-mural.jpg"
-                  alt="Sky's yoga studio with beautiful goddess mural"
+                  src="/images/yoga-practice.png"
+                  alt="Beautiful yoga practice with flowing movements"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -202,8 +202,8 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white overflow-hidden">
               <div className="relative h-64">
                 <Image
-                  src="/images/studio-goddess-mural.jpg"
-                  alt="Peaceful meditation space with spiritual artwork"
+                  src="/images/meditation-practice.png"
+                  alt="Peaceful meditation practice in serene environment"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -239,8 +239,8 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white overflow-hidden">
               <div className="relative h-64">
                 <Image
-                  src="/images/studio-goddess-mural.jpg"
-                  alt="Serene healing space for massage therapy"
+                  src="/images/massage-therapy.png"
+                  alt="Relaxing massage therapy session for healing and wellness"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
