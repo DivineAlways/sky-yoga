@@ -103,35 +103,21 @@ export default function AboutPage() {
 
             <div className="prose prose-lg max-w-none text-sage-700 leading-relaxed space-y-8">
               <p className="text-xl font-medium text-center mb-12 text-sage-800">
-                My path to wellness began not from a place of strength, but from a deep need for healing.
+                My health and wellness journey began ten years ago when I moved to California, seeking a fresh start after struggling with health challenges, including rheumatoid arthritis. Immersing myself in a supportive fitness community, I embraced a healthier lifestyle, cleaned up my diet, and gradually transformed my well-being. Encouraged by the gym owner, I became a fitness trainer, sparking my passion for guiding others on their health journeys.
               </p>
 
-              <div className="grid md:grid-cols-2 gap-12 items-start">
+              <div className="grid md:grid-cols-1 gap-12 items-start">
                 <div className="space-y-6">
                   <p className="text-lg">
-                    Ten years ago, I found myself overwhelmed by the demands of corporate life, struggling with anxiety,
-                    and feeling disconnected from my own body and spirit. It was during this challenging time that I
-                    first stepped onto a yoga mat, not knowing it would become the foundation of my transformation.
+                    As my experience grew, I pursued a yoga course in college and instantly fell in love with the practice. For more than a decade, I have been dedicated to teaching Vinyasa Flow—a dynamic style that synchronizes breath with movement, creating a moving meditation. I focus on helping my students reconnect with their inner center through mindful breathwork and asanas, leaving them feeling invigorated, empowered, and ready to meet life’s challenges with grace and ease.
                   </p>
 
                   <p className="text-lg">
-                    What began as a desperate search for stress relief evolved into a profound journey of
-                    self-discovery. Through consistent practice, I learned to breathe through discomfort, find stillness
-                    in chaos, and most importantly, cultivate compassion for myself.
+                    My passion for healing goes beyond yoga. During my nursing studies, I discovered a deep calling for holistic health, leading me to specialize in massage therapy. I tailor every session to meet my clients’ unique needs, specializing in deep tissue, full-body relaxation, and trigger point tension release. Through compassionate touch, I support my clients in their healing journey, promoting balance and wellbeing in both body and mind.
                   </p>
-                </div>
-
-                <div className="space-y-6">
+                  
                   <p className="text-lg">
-                    As my own healing deepened, I felt called to share these transformative practices with others. I
-                    left my corporate career to pursue intensive training in yoga, meditation, and therapeutic massage,
-                    studying with renowned teachers across the country.
-                  </p>
-
-                  <p className="text-lg">
-                    Today, I consider myself not just a teacher, but a fellow traveler on the path of wellness. Every
-                    session I offer comes from a place of genuine understanding of what it means to struggle, to seek,
-                    and to find peace within ourselves.
+                    Whether on the mat or the massage table, my mission is to guide you toward greater health, self-awareness, and lasting vitality.
                   </p>
                 </div>
               </div>
@@ -308,50 +294,50 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <div className="space-y-6">
               <Image
-                src="/placeholder.svg?height=300&width=400&text=Teaching+Yoga+Outdoors"
-                alt="Teaching yoga outdoors in natural setting"
+                src="/images/journey/journey-moment-1.jpg"
+                alt="Beautiful moment from Sky's yoga journey"
                 width={400}
                 height={300}
-                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow"
+                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow object-cover"
               />
               <Image
-                src="/placeholder.svg?height=400&width=400&text=Meditation+Session"
-                alt="Leading a peaceful meditation session"
+                src="/images/journey/journey-moment-2.jpg"
+                alt="Peaceful practice moment"
                 width={400}
                 height={400}
-                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow"
+                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow object-cover"
               />
             </div>
             <div className="space-y-6">
               <Image
-                src="/placeholder.svg?height=400&width=400&text=Morning+Practice+by+Water"
-                alt="Morning yoga practice by the water"
+                src="/images/journey/journey-moment-3.jpg"
+                alt="Yoga practice in serene setting"
                 width={400}
                 height={400}
-                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow"
+                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow object-cover"
               />
               <Image
-                src="/placeholder.svg?height=300&width=400&text=Group+Yoga+Class"
-                alt="Leading a group yoga class"
+                src="/images/journey/journey-moment-4.jpg"
+                alt="Teaching and sharing wellness"
                 width={400}
                 height={300}
-                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow"
+                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow object-cover"
               />
             </div>
             <div className="space-y-6">
               <Image
-                src="/placeholder.svg?height=300&width=400&text=Massage+Therapy+Space"
-                alt="Peaceful massage therapy environment"
+                src="/images/journey/journey-moment-5.jpg"
+                alt="Meditation and mindfulness practice"
                 width={400}
                 height={300}
-                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow"
+                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow object-cover"
               />
               <Image
-                src="/placeholder.svg?height=400&width=400&text=Practice+in+Nature"
-                alt="Yoga practice in beautiful natural setting"
+                src="/images/journey/journey-moment-6.jpg"
+                alt="Continuing the wellness journey"
                 width={400}
                 height={400}
-                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow"
+                className="rounded-2xl shadow-lg w-full hover:shadow-xl transition-shadow object-cover"
               />
             </div>
           </div>

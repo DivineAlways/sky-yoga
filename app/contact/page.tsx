@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -17,8 +19,72 @@ import {
   Calendar,
   MessageCircle,
 } from "lucide-react"
+import { useState } from "react"
 
 export default function ContactPage() {
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [interest, setInterest] = useState("")
+  const [message, setMessage] = useState("")
+  const [status, setStatus] = useState<string>("")
+
+  const safeSetStatus = (message: any) => {
+    // Ensure we only set strings to status
+    if (typeof message === 'string') {
+      setStatus(message)
+    } else if (message && typeof message === 'object') {
+      // If it's an object, try to extract a meaningful message
+      if (message.message) {
+        setStatus(String(message.message))
+      } else if (message.error) {
+        setStatus(String(message.error))
+      } else {
+        setStatus("An error occurred. Please try again.")
+      }
+    } else {
+      setStatus("An error occurred. Please try again.")
+    }
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    safeSetStatus("Sending...")
+
+    try {
+      // Using Formspree with your actual form ID
+      const res = await fetch("https://formspree.io/f/xqalgqdp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: `${firstName} ${lastName}`,
+          email: email,
+          phone: phone,
+          interest: interest,
+          message: message,
+        }),
+      })
+
+      if (res.ok) {
+        safeSetStatus("Message sent successfully!")
+        setFirstName("")
+        setLastName("")
+        setEmail("")
+        setPhone("")
+        setInterest("")
+        setMessage("")
+      } else {
+        safeSetStatus("Failed to send message. Please try again or call directly.")
+      }
+    } catch (error) {
+      console.error("Network Error:", error)
+      safeSetStatus("Failed to send message. Please check your connection and try again.")
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -87,7 +153,7 @@ export default function ContactPage() {
               <p className="text-sage-700 mb-4">
                 Ready to book or have questions? Give me a call for immediate assistance.
               </p>
-              <div className="text-lg font-bold text-sage-600 mb-4">(555) 123-YOGA</div>
+              <div className="text-lg font-bold text-sage-600 mb-4">+1 925-518-2302</div>
               <Button className="bg-sage-600 hover:bg-sage-700 text-white rounded-full px-6 font-medium">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
@@ -103,7 +169,7 @@ export default function ContactPage() {
               <p className="text-sage-700 mb-4">
                 Prefer to write? Send me a detailed message and I'll respond within 24 hours.
               </p>
-              <div className="text-lg font-bold text-sage-600 mb-4">hello@skyyoga.com</div>
+              <div className="text-lg font-bold text-sage-600 mb-4">skylarkbembry@gmail.com</div>
               <Button
                 variant="outline"
                 className="border-sage-300 text-sage-700 hover:bg-sage-50 bg-transparent rounded-full px-6 font-medium"
@@ -113,24 +179,22 @@ export default function ContactPage() {
               </Button>
             </Card>
 
-            {/* Location */}
+            {/* WhatsApp */}
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow text-center p-8">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-sage-100 rounded-full mb-6">
-                <MapPin className="w-8 h-8 text-sage-600" />
+                <MessageCircle className="w-8 h-8 text-sage-600" />
               </div>
-              <h3 className="text-2xl font-serif text-sage-900 mb-4 font-bold">Visit the Studio</h3>
-              <p className="text-sage-700 mb-4">Experience the peaceful energy of my studio space in person.</p>
-              <div className="text-lg font-bold text-sage-600 mb-4">
-                123 Wellness Way
-                <br />
-                Peaceful Valley, CA 90210
-              </div>
+              <h3 className="text-2xl font-serif text-sage-900 mb-4 font-bold">WhatsApp</h3>
+              <p className="text-sage-700 mb-4">
+                Send me a message on WhatsApp for a quick response.
+              </p>
+              <div className="text-lg font-bold text-sage-600 mb-4">+1 925-518-2032</div>
               <Button
                 variant="outline"
                 className="border-sage-300 text-sage-700 hover:bg-sage-50 bg-transparent rounded-full px-6 font-medium"
               >
-                <MapPin className="w-4 h-4 mr-2" />
-                Get Directions
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Message Me
               </Button>
             </Card>
           </div>
@@ -157,7 +221,7 @@ export default function ContactPage() {
 
               <Card className="border-0 shadow-lg">
                 <CardContent className="p-8">
-                  <form className="space-y-6">
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="firstName" className="block text-sm font-medium text-sage-700 mb-2">
@@ -168,6 +232,8 @@ export default function ContactPage() {
                           placeholder="Your first name"
                           className="border-sage-300 focus:border-sage-500"
                           required
+                          value={firstName}
+                          onChange={(e) => setFirstName(e.target.value)}
                         />
                       </div>
                       <div>
@@ -179,6 +245,8 @@ export default function ContactPage() {
                           placeholder="Your last name"
                           className="border-sage-300 focus:border-sage-500"
                           required
+                          value={lastName}
+                          onChange={(e) => setLastName(e.target.value)}
                         />
                       </div>
                     </div>
@@ -193,6 +261,8 @@ export default function ContactPage() {
                         placeholder="your.email@example.com"
                         className="border-sage-300 focus:border-sage-500"
                         required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
 
@@ -205,6 +275,8 @@ export default function ContactPage() {
                         type="tel"
                         placeholder="(555) 123-4567"
                         className="border-sage-300 focus:border-sage-500"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
                       />
                     </div>
 
@@ -215,6 +287,8 @@ export default function ContactPage() {
                       <select
                         id="interest"
                         className="w-full px-3 py-2 border border-sage-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sage-500 focus:border-sage-500"
+                        value={interest}
+                        onChange={(e) => setInterest(e.target.value)}
                       >
                         <option value="">Select a service</option>
                         <option value="yoga">Yoga Classes</option>
@@ -236,6 +310,8 @@ export default function ContactPage() {
                         rows={5}
                         className="border-sage-300 focus:border-sage-500"
                         required
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
                       />
                     </div>
 
@@ -244,6 +320,12 @@ export default function ContactPage() {
                       Send Message
                     </Button>
                   </form>
+
+                  {status && typeof status === 'string' && status.length > 0 && (
+                    <p className="text-sm text-sage-600 mt-4 text-center">
+                      {String(status)}
+                    </p>
+                  )}
 
                   <p className="text-sm text-sage-600 mt-4 text-center">
                     I typically respond within 24 hours. For urgent matters, please call directly.
@@ -266,31 +348,6 @@ export default function ContactPage() {
                 <div className="absolute -top-6 -right-6 w-32 h-32 bg-rose-200/30 rounded-full blur-xl"></div>
               </div>
 
-              <Card className="border-0 shadow-lg mb-8">
-                <CardContent className="p-6">
-                  <h3 className="text-2xl font-serif text-sage-900 mb-4 font-bold">Studio Hours</h3>
-                  <div className="space-y-3">
-                    <div className="flex items-center">
-                      <Clock className="w-5 h-5 text-sage-600 mr-3" />
-                      <div>
-                        <div className="font-medium text-sage-900">Monday - Friday</div>
-                        <div className="text-sage-700">7:00 AM - 8:00 PM</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <Clock className="w-5 h-5 text-sage-600 mr-3" />
-                      <div>
-                        <div className="font-medium text-sage-900">Saturday - Sunday</div>
-                        <div className="text-sage-700">8:00 AM - 6:00 PM</div>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-sage-600 mt-4">
-                    Sessions available by appointment. I also offer mobile services to your location.
-                  </p>
-                </CardContent>
-              </Card>
-
               <Card className="border-0 shadow-lg">
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-serif text-sage-900 mb-4 font-bold">Follow My Journey</h3>
@@ -305,7 +362,7 @@ export default function ContactPage() {
                       className="border-sage-300 text-sage-700 hover:bg-sage-50 bg-transparent rounded-full"
                     >
                       <Instagram className="w-4 h-4 mr-2" />
-                      Instagram
+                      @holistic_sky_wellness
                     </Button>
                     <Button
                       variant="outline"
@@ -372,26 +429,6 @@ export default function ContactPage() {
                 <p className="text-sage-700">
                   I ask for 24 hours notice for cancellations. Life happens, and I'm understanding of genuine
                   emergencies. Let's just communicate openly.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-sm bg-sage-50">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-bold text-sage-900 mb-3">How often should I practice?</h3>
-                <p className="text-sage-700">
-                  This depends on your goals and schedule. Even once a week can be beneficial. I'll help you create a
-                  realistic practice schedule that fits your life.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-sm bg-sage-50">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-bold text-sage-900 mb-3">Do you offer package deals?</h3>
-                <p className="text-sage-700">
-                  Yes! I have several package options that offer savings for multiple sessions. Check out my booking
-                  page for current packages and pricing.
                 </p>
               </CardContent>
             </Card>
@@ -485,10 +522,10 @@ export default function ContactPage() {
             <div>
               <h4 className="font-bold mb-4">Contact</h4>
               <ul className="space-y-2 text-sage-200">
-                <li>Phone: (555) 123-YOGA</li>
-                <li>Email: hello@skyyoga.com</li>
+                <li>Phone: +1 925-518-2302</li>
+                <li>Email: skylarkbembry@gmail.com</li>
                 <li>123 Wellness Way</li>
-                <li>Peaceful Valley, CA 90210</li>
+                <li>Peaceful Valley, CA 9210</li>
               </ul>
             </div>
           </div>

@@ -127,30 +127,12 @@ export default function HomePage() {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-serif text-sage-900 mb-8 font-bold">
-              A Journey of Healing & Transformation
+              My Mission
             </h2>
 
             <p className="text-lg md:text-xl text-sage-700 leading-relaxed mb-8">
-              Hi, I'm Sky. My journey into yoga, meditation, and massage therapy began as a personal quest for healing
-              and has blossomed into a passion for helping others discover their own path to wellness. Through gentle
-              guidance and authentic practice, I create a safe space where you can reconnect with your body, mind, and
-              spirit.
+              My mission is to help others feel their best and live their healthiest lives—so their souls and spirits can truly thrive. Through compassionate massage therapy and mindful yoga, I empower individuals to reach their highest potential in this lifetime, encouraging them to feel energized, resilient, and ready to embrace life with confidence and purpose.
             </p>
-
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-8">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-sage-600 mb-2">500+</div>
-                <div className="text-sage-700 font-medium">Sessions</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-sage-600 mb-2">5+</div>
-                <div className="text-sage-700 font-medium">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-sage-600 mb-2">100+</div>
-                <div className="text-sage-700 font-medium">Happy Clients</div>
-              </div>
-            </div>
 
             <Link href="/about">
               <Button className="bg-sage-600 hover:bg-sage-700 text-white rounded-full px-8 py-3 font-medium">

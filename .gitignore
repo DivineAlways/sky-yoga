@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js
+.next/
+out/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Python virtual environment
+venv/
+env/
+ENV/
+
+# Logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Lock files (keep pnpm-lock.yaml for consistency)
+package-lock.json
+
+# Temporary files
+*.tmp
+*.temp
+
+# Image setup instructions (temporary file)
+IMAGE_SETUP_INSTRUCTIONS.md
+updates.txt
+
+# Original image files (keep only the renamed journey images)
+public/images/IMG-*.jpg
+public/images/PXL_*.jpg

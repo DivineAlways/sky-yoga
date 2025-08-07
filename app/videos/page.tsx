@@ -484,8 +484,8 @@ export default function VideosPage() {
             <div>
               <h4 className="font-bold mb-4">Contact</h4>
               <ul className="space-y-2 text-sage-200">
-                <li>Phone: (555) 123-YOGA</li>
-                <li>Email: hello@skyyoga.com</li>
+                <li>Phone: +1 925-518-2302</li>
+                <li>Email: skylarkbembry@gmail.com</li>
                 <li>Available 7 days a week</li>
               </ul>
             </div>

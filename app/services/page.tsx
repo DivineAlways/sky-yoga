@@ -3,6 +3,15 @@ import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Calendar, Users, Heart, Star, CheckCircle, Phone } from "lucide-react"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function ServicesPage() {
   return (
@@ -59,19 +68,21 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Yoga Services */}
+      {/* Yoga Offerings */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-serif text-sage-900 mb-6 font-bold">
+                  Yoga Offerings
+                </h2>
+            </div>
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
               <div>
                 <div className="inline-flex items-center space-x-2 mb-6">
                   <Users className="w-5 h-5 text-sage-600" />
-                  <span className="text-sage-600 font-medium">Yoga Practice</span>
+                  <span className="text-sage-600 font-medium">Peru – In-Person Yoga</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-serif text-sage-900 mb-6 font-bold">
-                  Yoga Classes & Private Sessions
-                </h2>
                 <p className="text-lg text-sage-700 leading-relaxed mb-8">
                   Whether you're new to yoga or deepening your practice, I offer personalized instruction that honors
                   your body's wisdom and supports your unique journey. Each session is crafted to meet you exactly where
@@ -79,22 +90,27 @@ export default function ServicesPage() {
                 </p>
 
                 <div className="space-y-4 mb-8">
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Vinyasa Flow for dynamic movement</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Hatha Yoga for strength and stability</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Restorative Yoga for deep relaxation</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Prenatal & Postnatal specialized classes</span>
-                  </div>
+                  <Select>
+                    <SelectTrigger className="w-[280px]">
+                      <SelectValue placeholder="Select a plan" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Drop-In Rates</SelectLabel>
+                        <SelectItem value="30">30 soles per class</SelectItem>
+                        <SelectItem value="50">50 soles per class</SelectItem>
+                      </SelectGroup>
+                      <SelectGroup>
+                        <SelectLabel>Weekly Pass</SelectLabel>
+                        <SelectItem value="400-week">400 soles</SelectItem>
+                      </SelectGroup>
+                      <SelectGroup>
+                        <SelectLabel>Monthly Packages</SelectLabel>
+                        <SelectItem value="400-month">4x/week: 400 soles/month</SelectItem>
+                        <SelectItem value="300-month">3x/week: 300 soles/month</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <Link href="/booking">
@@ -117,257 +133,171 @@ export default function ServicesPage() {
                 <div className="absolute -top-6 -right-6 w-32 h-32 bg-rose-200/30 rounded-full blur-xl"></div>
               </div>
             </div>
-
-            {/* Yoga Pricing */}
-            <div className="grid md:grid-cols-3 gap-6 mb-20">
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-sage-900 mb-2">Private Session</h3>
-                  <div className="text-3xl font-bold text-sage-600 mb-4">$85</div>
-                  <p className="text-sage-700 mb-4">60 minutes of personalized instruction</p>
-                  <ul className="text-sm text-sage-600 space-y-2">
-                    <li>• Customized to your needs</li>
-                    <li>• All equipment provided</li>
-                    <li>• Studio or your location</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-sage-900 mb-2">Extended Session</h3>
-                  <div className="text-3xl font-bold text-sage-600 mb-4">$120</div>
-                  <p className="text-sage-700 mb-4">90 minutes for deeper practice</p>
-                  <ul className="text-sm text-sage-600 space-y-2">
-                    <li>• Extended meditation time</li>
-                    <li>• Deeper asana practice</li>
-                    <li>• Breathwork integration</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-sage-900 mb-2">Group Session</h3>
-                  <div className="text-3xl font-bold text-sage-600 mb-4">$45</div>
-                  <p className="text-sage-700 mb-4">Per person (2-4 people)</p>
-                  <ul className="text-sm text-sage-600 space-y-2">
-                    <li>• Share with friends/family</li>
-                    <li>• Build community</li>
-                    <li>• Cost-effective option</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Meditation Services */}
-      <section className="py-20 bg-sage-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-              <div className="order-2 lg:order-1 relative">
-                <Image
-                  src="/images/studio-goddess-mural.jpg"
-                  alt="Peaceful meditation space with spiritual artwork"
-                  width={600}
-                  height={500}
-                  className="rounded-3xl shadow-2xl"
-                />
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sage-200/50 rounded-full blur-xl"></div>
-                <div className="absolute -top-6 -left-6 w-32 h-32 bg-rose-200/30 rounded-full blur-xl"></div>
-              </div>
-
-              <div className="order-1 lg:order-2">
-                <div className="inline-flex items-center space-x-2 mb-6">
-                  <Star className="w-5 h-5 text-sage-600" />
-                  <span className="text-sage-600 font-medium">Meditation Practice</span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-serif text-sage-900 mb-6 font-bold">
-                  Meditation & Mindfulness
-                </h2>
-                <p className="text-lg text-sage-700 leading-relaxed mb-8">
-                  Learn to cultivate inner peace and presence through guided meditation practices. Whether you're a
-                  complete beginner or looking to deepen your existing practice, I'll help you find the techniques that
-                  resonate with your unique path.
-                </p>
-
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Guided meditation for beginners</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Breathwork and pranayama techniques</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Mindfulness-based stress reduction</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Walking meditation in nature</span>
-                  </div>
-                </div>
-
-                <Link href="/booking">
-                  <Button className="bg-sage-600 hover:bg-sage-700 text-white rounded-full px-8 py-3 font-medium">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Book Meditation Session
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Meditation Pricing */}
-            <div className="grid md:grid-cols-3 gap-6 mb-20">
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-sage-900 mb-2">Introduction Session</h3>
-                  <div className="text-3xl font-bold text-sage-600 mb-4">$65</div>
-                  <p className="text-sage-700 mb-4">45 minutes for beginners</p>
-                  <ul className="text-sm text-sage-600 space-y-2">
-                    <li>• Learn basic techniques</li>
-                    <li>• Personalized guidance</li>
-                    <li>• Take-home practices</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-sage-900 mb-2">Deep Practice</h3>
-                  <div className="text-3xl font-bold text-sage-600 mb-4">$85</div>
-                  <p className="text-sage-700 mb-4">60 minutes of guided meditation</p>
-                  <ul className="text-sm text-sage-600 space-y-2">
-                    <li>• Advanced techniques</li>
-                    <li>• Breathwork integration</li>
-                    <li>• Spiritual guidance</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-sage-900 mb-2">Group Meditation</h3>
-                  <div className="text-3xl font-bold text-sage-600 mb-4">$35</div>
-                  <p className="text-sage-700 mb-4">Per person group sessions</p>
-                  <ul className="text-sm text-sage-600 space-y-2">
-                    <li>• Community practice</li>
-                    <li>• Shared energy</li>
-                    <li>• Monthly workshops</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Massage Services */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
               <div>
                 <div className="inline-flex items-center space-x-2 mb-6">
-                  <Heart className="w-5 h-5 text-sage-600" />
-                  <span className="text-sage-600 font-medium">Healing Touch</span>
+                  <Users className="w-5 h-5 text-sage-600" />
+                  <span className="text-sage-600 font-medium">US – Virtual Yoga (Only)</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-serif text-sage-900 mb-6 font-bold">Therapeutic Massage</h2>
                 <p className="text-lg text-sage-700 leading-relaxed mb-8">
-                  Experience the healing power of therapeutic touch in a sacred, peaceful environment. My massage
-                  therapy combines technical skill with intuitive healing, addressing both physical tension and
-                  energetic blockages.
+                  Whether you're new to yoga or deepening your practice, I offer personalized instruction that honors
+                  your body's wisdom and supports your unique journey. Each session is crafted to meet you exactly where
+                  you are.
                 </p>
 
                 <div className="space-y-4 mb-8">
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Swedish massage for relaxation</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Deep tissue for chronic tension</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Hot stone therapy for deep healing</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-sage-600 mr-3" />
-                    <span className="text-sage-700">Aromatherapy integration</span>
-                  </div>
+                    <Select>
+                        <SelectTrigger className="w-[280px]">
+                            <SelectValue placeholder="Select a plan" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectGroup>
+                                <SelectLabel>Group Sessions</SelectLabel>
+                                <SelectItem value="15">$15/person</SelectItem>
+                            </SelectGroup>
+                            <SelectGroup>
+                                <SelectLabel>Virtual Private</SelectLabel>
+                                <SelectItem value="50">$50/person</SelectItem>
+                            </SelectGroup>
+                        </SelectContent>
+                    </Select>
                 </div>
 
                 <Link href="/booking">
                   <Button className="bg-sage-600 hover:bg-sage-700 text-white rounded-full px-8 py-3 font-medium">
                     <Calendar className="w-4 h-4 mr-2" />
-                    Book Massage Session
+                    Book Yoga Session
                   </Button>
                 </Link>
               </div>
-
-              <div className="relative">
-                <Image
-                  src="/images/studio-goddess-mural.jpg"
-                  alt="Serene healing space for massage therapy"
-                  width={600}
-                  height={500}
-                  className="rounded-3xl shadow-2xl"
-                />
-                <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-sage-200/50 rounded-full blur-xl"></div>
-                <div className="absolute -top-6 -right-6 w-32 h-32 bg-rose-200/30 rounded-full blur-xl"></div>
-              </div>
-            </div>
-
-            {/* Massage Pricing */}
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-sage-900 mb-2">Swedish Massage</h3>
-                  <div className="text-3xl font-bold text-sage-600 mb-4">$95</div>
-                  <p className="text-sage-700 mb-4">60 minutes of relaxation</p>
-                  <ul className="text-sm text-sage-600 space-y-2">
-                    <li>• Full body relaxation</li>
-                    <li>• Stress relief focus</li>
-                    <li>• Gentle, flowing strokes</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-sage-900 mb-2">Deep Tissue</h3>
-                  <div className="text-3xl font-bold text-sage-600 mb-4">$105</div>
-                  <p className="text-sage-700 mb-4">60 minutes of targeted work</p>
-                  <ul className="text-sm text-sage-600 space-y-2">
-                    <li>• Chronic tension relief</li>
-                    <li>• Muscle knot release</li>
-                    <li>• Injury rehabilitation</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-sage-900 mb-2">Hot Stone Therapy</h3>
-                  <div className="text-3xl font-bold text-sage-600 mb-4">$145</div>
-                  <p className="text-sage-700 mb-4">90 minutes of deep healing</p>
-                  <ul className="text-sm text-sage-600 space-y-2">
-                    <li>• Heated stone placement</li>
-                    <li>• Deep muscle relaxation</li>
-                    <li>• Energy balancing</li>
-                  </ul>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Massage Therapy */}
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-4">
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-serif text-sage-900 mb-6 font-bold">
+                        Massage Therapy
+                        </h2>
+                    </div>
+                    <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                        <div>
+                            <div className="inline-flex items-center space-x-2 mb-6">
+                                <Heart className="w-5 h-5 text-sage-600" />
+                                <span className="text-sage-600 font-medium">Peru – In-Person Massage</span>
+                            </div>
+                            <p className="text-lg text-sage-700 leading-relaxed mb-8">
+                                Experience the healing power of therapeutic touch in a sacred, peaceful environment. My massage
+                                therapy combines technical skill with intuitive healing, addressing both physical tension and
+                                energetic blockages.
+                            </p>
+
+                            <div className="space-y-4 mb-8">
+                                <Select>
+                                    <SelectTrigger className="w-[280px]">
+                                        <SelectValue placeholder="Select a plan" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectGroup>
+                                            <SelectLabel>Single Sessions</SelectLabel>
+                                            <SelectItem value="150">60min: 150 soles</SelectItem>
+                                            <SelectItem value="225">90min: 225 soles</SelectItem>
+                                        </SelectGroup>
+                                        <SelectGroup>
+                                            <SelectLabel>Monthly Packages</SelectLabel>
+                                            <SelectItem value="226">2x60min/month: 226 soles</SelectItem>
+                                            <SelectItem value="338">2x90min/month: 338 soles</SelectItem>
+                                            <SelectItem value="452">4x60min/month: 452 soles</SelectItem>
+                                            <SelectItem value="675">4x90min/month: 675 soles</SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+
+                            <Link href="/booking">
+                                <Button className="bg-sage-600 hover:bg-sage-700 text-white rounded-full px-8 py-3 font-medium">
+                                    <Calendar className="w-4 h-4 mr-2" />
+                                    Book Massage Session
+                                </Button>
+                            </Link>
+                        </div>
+                        <div className="relative">
+                            <Image
+                                src="/images/studio-goddess-mural.jpg"
+                                alt="Serene healing space for massage therapy"
+                                width={600}
+                                height={500}
+                                className="rounded-3xl shadow-2xl"
+                            />
+                            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-sage-200/50 rounded-full blur-xl"></div>
+                            <div className="absolute -top-6 -right-6 w-32 h-32 bg-rose-200/30 rounded-full blur-xl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-4">
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-serif text-sage-900 mb-6 font-bold">
+                        Yoga & Massage Packages (Peru Only)
+                        </h2>
+                    </div>
+                    <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                        <div>
+                            <div className="inline-flex items-center space-x-2 mb-6">
+                                <Heart className="w-5 h-5 text-sage-600" />
+                                <span className="text-sage-600 font-medium">Peru – In-Person Packages</span>
+                            </div>
+                            <p className="text-lg text-sage-700 leading-relaxed mb-8">
+                                Experience the healing power of therapeutic touch in a sacred, peaceful environment. My massage
+                                therapy combines technical skill with intuitive healing, addressing both physical tension and
+                                energetic blockages.
+                            </p>
+
+                            <div className="space-y-4 mb-8">
+                                <Select>
+                                    <SelectTrigger className="w-[280px]">
+                                        <SelectValue placeholder="Select a plan" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectGroup>
+                                            <SelectLabel>Packages</SelectLabel>
+                                            <SelectItem value="485">Yoga + 60-min Massage: 485 soles</SelectItem>
+                                            <SelectItem value="560">3x/week Yoga + 1x90-min Massage/month: 560 soles</SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+
+                            <Link href="/booking">
+                                <Button className="bg-sage-600 hover:bg-sage-700 text-white rounded-full px-8 py-3 font-medium">
+                                    <Calendar className="w-4 h-4 mr-2" />
+                                    Book Package
+                                </Button>
+                            </Link>
+                        </div>
+                        <div className="relative">
+                            <Image
+                                src="/images/studio-goddess-mural.jpg"
+                                alt="Serene healing space for massage therapy"
+                                width={600}
+                                height={500}
+                                className="rounded-3xl shadow-2xl"
+                            />
+                            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-sage-200/50 rounded-full blur-xl"></div>
+                            <div className="absolute -top-6 -right-6 w-32 h-32 bg-rose-200/30 rounded-full blur-xl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-r from-sage-600 to-sage-700 text-white">
@@ -452,8 +382,8 @@ export default function ServicesPage() {
             <div>
               <h4 className="font-bold mb-4">Contact</h4>
               <ul className="space-y-2 text-sage-200">
-                <li>Phone: (555) 123-YOGA</li>
-                <li>Email: hello@skyyoga.com</li>
+                <li>Phone: +1 925-518-2302</li>
+                <li>Email: skylarkbembry@gmail.com</li>
                 <li>Available 7 days a week</li>
               </ul>
             </div>
